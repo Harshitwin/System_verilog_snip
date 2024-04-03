@@ -45,3 +45,35 @@ the sub is  6
 Time: 0
 CPU Time:      0.190 seconds;       Data structure size:   0.0Mb
 Thu Apr  4 02:11:57 2024
+
+
+module tb;
+bit [3:0]a =4'd5;
+bit [3:0]b = 4'd7;
+bit [4:0] res;
+initial begin
+    res = add(a,b);
+     $display("the sum is %d",res);
+end
+function bit[4:0] add (input bit [3:0]a,b);
+    return a+b; 
+endfunction
+endmodule
+
+
+/// wrong result got 
+module tb;
+bit [4:0] res;
+initial begin
+    res = add();
+     $display("the sum is %d",res);
+end
+
+
+
+function bit [4:0] add (input bit a=4'd4 , b =4'd7);
+    return a+b; 
+endfunction
+
+
+endmodule
